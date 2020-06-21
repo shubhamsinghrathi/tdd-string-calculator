@@ -46,7 +46,6 @@ public class StringCalculator {
 		String negativeInputs = "";
 		for (String numb: numbs) {	
 			int numbInt = Integer.valueOf(numb);
-			ans += numbInt;
 			
 			if (numbInt < 0) {
 				if (negativeInputs.equals("")) {
@@ -55,6 +54,11 @@ public class StringCalculator {
 					negativeInputs += ", " + numb;
 				}
 			}
+			
+			if (numbInt > 1000) {
+				continue;
+			}
+			ans += numbInt;
 		}
 		
 		if(!negativeInputs.equals("")){
