@@ -7,11 +7,22 @@ public class StringCalculator {
 			return 0;
 		}
 		
-		String[] sNumbs = str.split(",");
+		String[] sNumbs = splitNumbers(str);
+		int ans = addNumbers(sNumbs);
+		return ans;
+	}
+	
+	private String[] splitNumbers(String numString) {
+		String[] sNumbs = numString.split(",");
+		return sNumbs;
+	}
+	
+	private int addNumbers(String[] numbs) {
 		int ans = 0;
-		for (String numb: sNumbs) {
+		for (String numb: numbs) {	
 			ans += Integer.valueOf(numb);
 		}
+		
 		return ans;
 	}
 
