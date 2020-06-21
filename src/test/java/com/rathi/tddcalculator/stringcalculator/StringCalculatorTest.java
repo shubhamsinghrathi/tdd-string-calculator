@@ -62,4 +62,13 @@ public class StringCalculatorTest {
 		}
 	}
 	
+	@Test
+	public void getCalledCountTest() {
+		StringCalculator strCalculator = new StringCalculator();
+		strCalculator.add("");
+		strCalculator.add("");
+		strCalculator.add("");
+		assertEquals(3, strCalculator.getCalledCount());
+	}
+	
 }
