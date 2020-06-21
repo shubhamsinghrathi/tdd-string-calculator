@@ -29,7 +29,14 @@ public class StringCalculator {
 			Pattern regexPatter = Pattern.compile("(//)(.*)(\n)(.*)");
 			Matcher matcher = regexPatter.matcher(str);
 			while (matcher.find()) {
-				delimiter = matcher.group(2) + "|\n";
+				String limiter = "\n";
+		        String[] limiterArr = matcher.group(2).split("\\]|\\[");
+		        for (String l: limiterArr) {
+		            if (!l.equals("")) {
+		            	limiter += "|" + l;
+		            }
+		        }
+		        delimiter = limiter;
 				numStr = matcher.group(4);	
 			}
 		}
