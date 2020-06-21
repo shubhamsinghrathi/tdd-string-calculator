@@ -42,9 +42,10 @@ public class StringCalculator {
 		int ans = 0;
 		String negativeInputs = "";
 		for (String numb: numbs) {	
-			ans += Integer.valueOf(numb);
+			int numbInt = Integer.valueOf(numb);
+			ans += numbInt;
 			
-			if (Integer.valueOf(numb) < 0) {
+			if (numbInt < 0) {
 				if (negativeInputs.equals("")) {
 					negativeInputs = numb;
 				} else {
