@@ -10,20 +10,27 @@ public class StringCalculator {
 			return 0;
 		}
 		
-		String numStr = str;
-		String strDelimiter = ",|\n";
-		if (str.matches("//(.*)\n(.*)")) {
-			Pattern regexPatter = Pattern.compile("(//)(.*)(\n)(.*)");
-			Matcher matcher = regexPatter.matcher(str);
-			while (matcher.find()) {
-				strDelimiter = matcher.group(2) + "|\n";
-				numStr = matcher.group(4);	
-			}
-		}
+		String[] splitterStr = getNumStringAndDelimiter(str);
+		String numStr = splitterStr[0];
+		String strDelimiter = splitterStr[1];
 		
 		String[] sNumbs = splitNumbers(numStr, strDelimiter);
 		int ans = addNumbers(sNumbs);
 		return ans;
+	}
+	
+	private String[] getNumStringAndDelimiter(String str) {
+		String numStr = str;
+		String delimiter = ",|\n";
+		if (str.matches("//(.*)\n(.*)")) {
+			Pattern regexPatter = Pattern.compile("(//)(.*)(\n)(.*)");
+			Matcher matcher = regexPatter.matcher(str);
+			while (matcher.find()) {
+				delimiter = matcher.group(2) + "|\n";
+				numStr = matcher.group(4);	
+			}
+		}
+		return new String[] {numStr, delimiter};
 	}
 	
 	private String[] splitNumbers(String numString, String strDelimiter) {
