@@ -13,7 +13,7 @@ public class StringCalculator {
 	}
 	
 	private String[] splitNumbers(String numString) {
-		String[] sNumbs = numString.split(",");
+		String[] sNumbs = numString.split(",|\n");
 		return sNumbs;
 	}
 	
