@@ -76,4 +76,9 @@ public class StringCalculatorTest {
 		assertEquals(3, stringCalculator.add("1001,1,2"));
 	}
 	
+	@Test
+	public void advancedDifferentDelimiterTest() {
+		assertEquals(6, stringCalculator.add("//[;;;]\n1;;;2;;;3"));
+	}
+	
 }
