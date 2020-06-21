@@ -6,7 +6,13 @@ public class StringCalculator {
 		if (str.equals("")) {
 			return 0;
 		}
-		return 1;
+		
+		String[] sNumbs = str.split(",");
+		int ans = 0;
+		for (String numb: sNumbs) {
+			ans += Integer.valueOf(numb);
+		}
+		return ans;
 	}
 
 }
