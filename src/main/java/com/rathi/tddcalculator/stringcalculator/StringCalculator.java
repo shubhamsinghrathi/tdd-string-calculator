@@ -40,8 +40,21 @@ public class StringCalculator {
 	
 	private int addNumbers(String[] numbs) {
 		int ans = 0;
+		String negativeInputs = "";
 		for (String numb: numbs) {	
 			ans += Integer.valueOf(numb);
+			
+			if (Integer.valueOf(numb) < 0) {
+				if (negativeInputs.equals("")) {
+					negativeInputs = numb;
+				} else {
+					negativeInputs += ", " + numb;
+				}
+			}
+		}
+		
+		if(!negativeInputs.equals("")){
+			throw new IllegalArgumentException("Negative input found: " + negativeInputs);
 		}
 		
 		return ans;
