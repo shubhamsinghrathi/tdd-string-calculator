@@ -71,4 +71,9 @@ public class StringCalculatorTest {
 		assertEquals(3, strCalculator.getCalledCount());
 	}
 	
+	@Test
+	public void overThousandNumberTest() {
+		assertEquals(3, stringCalculator.add("1001,1,2"));
+	}
+	
 }
