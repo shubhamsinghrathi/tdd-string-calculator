@@ -29,18 +29,23 @@ public class StringCalculator {
 			Pattern regexPatter = Pattern.compile("(//)(.*)(\n)(.*)");
 			Matcher matcher = regexPatter.matcher(str);
 			while (matcher.find()) {
-				String limiter = "\n";
-		        String[] limiterArr = matcher.group(2).split("\\]|\\[");
-		        for (String l: limiterArr) {
-		            if (!l.equals("")) {
-		            	limiter += "|" + l;
-		            }
-		        }
-		        delimiter = limiter;
+		        delimiter = getDelimiter(matcher.group(2));
 				numStr = matcher.group(4);	
 			}
 		}
 		return new String[] {numStr, delimiter};
+	}
+	
+	private String getDelimiter(String str) {
+		String limiter = "\n";
+        String[] limiterArr = str.split("\\]|\\[");
+        for (String l: limiterArr) {
+            if (!l.equals("")) {
+            	limiter += "|" + l;
+            }
+        }
+        
+        return limiter;
 	}
 	
 	private String[] splitNumbers(String numString, String strDelimiter) {
