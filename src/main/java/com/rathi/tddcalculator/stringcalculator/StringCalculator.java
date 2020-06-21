@@ -5,7 +5,10 @@ import java.util.regex.Pattern;
 
 public class StringCalculator {
 
+	private int totalAddCalls = 0;
+	
 	public int add(String str) {
+		totalAddCalls += 1;
 		if (str.equals("")) {
 			return 0;
 		}
@@ -62,7 +65,7 @@ public class StringCalculator {
 	}
 
 	public int getCalledCount() {
-		return 0;
+		return totalAddCalls;
 	}
 
 }
